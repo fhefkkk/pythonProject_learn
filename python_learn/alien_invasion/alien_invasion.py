@@ -7,7 +7,7 @@ import sys
 import pygame
 
 
-class Alien_invasion:
+class AlienInvasion:
     """管理游戏资源和行为的类"""
 
     def __init__(self):
@@ -17,6 +17,9 @@ class Alien_invasion:
         self.screen = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption("Alien Invasion")
 
+        # 设置背景色
+        self.bg_color = (230, 230, 230)
+
     def run_game(self):
         """开始游戏的主循环"""
         while True:
@@ -25,11 +28,14 @@ class Alien_invasion:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
+            # 每次循环时都绘制屏幕
+            self.screen.fill(self.bg_color)
+
             # 让最近绘制的屏幕可见
             pygame.display.flip()
 
 
 if __name__ == '__main__':
     # 创建游戏实例并运行游戏
-    ai = Alien_invasion()
+    ai = AlienInvasion()
     ai.run_game()
